@@ -13,5 +13,19 @@ namespace ProyectoCoderHouse.Controllers
         {
             return UsuarioHandler.GetUsuarios();
         }
+
+        [HttpGet("{nombreUsuario}/{contraseña}")]
+        public bool GetUsuarioByNombreUsuarioAndContraseña(string nombreUsuario, string contraseña)
+        {
+            Usuario usuario = UsuarioHandler.GetUsuarioByNombreUsuarioAndContraseña(nombreUsuario, contraseña);
+            if(usuario.NombreUsuario == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
 }
